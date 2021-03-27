@@ -15,7 +15,8 @@ class EmployeesController < ApplicationController
     end
 
     def show 
-        @employee = Employee.find(params[:id])
+        @employee = Employee.find_by_id(params[:id])
+        redirect_to '/' if !@employee 
     end
 
     private
