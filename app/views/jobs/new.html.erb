@@ -1,0 +1,15 @@
+<h1>Create A New Job</h1>
+
+<%= form_for(@job) do |f| %>
+
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+
+    <%= f.label :requirements %>
+    <%= f.text_field :requirements %>
+
+    <%= f.label :cost %>
+    <%= f.number_field :cost %>
+
+    <%= f.submit %>
+    <% end %>

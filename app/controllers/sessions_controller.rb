@@ -1,10 +1,5 @@
 class SessionsController < ApplicationController
 
-    def destroy 
-        session.destroy 
-        redirect_to root_path
-    end
-
     def create 
         if 
             user = Employee.find_by(username: params[:user][:username])
@@ -17,8 +12,14 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to customer_path(user)
         else
+            flash[:message] = "Wrong log in info, please try again."
             redirect_to '/login'
         end
+    end
+
+    def destroy 
+        session.destroy 
+        redirect_to root_path
     end
 
 end

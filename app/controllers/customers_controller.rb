@@ -16,10 +16,11 @@ class CustomersController < ApplicationController
 
     def show 
         @customer = Customer.find(params[:id])
+        redirect_to '/' if !@customer 
     end
 
     def index
-
+        @customer = Customer.all 
     end
 
     private 
