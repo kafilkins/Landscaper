@@ -1,5 +1,15 @@
 class CustomersController < ApplicationController
 
+    def index
+        if 
+            params[:job_id] && @job = Job.find_by_id(params[:job_id])
+            @customers = @job.customers.build 
+        else
+            @customers = Customer.all
+        end
+
+    end
+
     def new 
         @customer = Customer.new
     end
@@ -17,10 +27,6 @@ class CustomersController < ApplicationController
     def show 
         @customer = Customer.find(params[:id])
         redirect_to '/' if !@customer 
-    end
-
-    def index
-        @customer = Customer.all 
     end
 
     private 

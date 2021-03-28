@@ -10,19 +10,28 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    
     <div>
     <% if logged_in_as_customer? %>
       <%= link_to "Add a Job", new_job_path %> |
-      <%= link_to "View My Jobs", jobs_path %> |
+      <%= link_to "View My Jobs", "/customers/#{current_customer.id}/jobs" %> |
       <%= link_to "Logout", logout_path, method: "delete" %>
+     <br><%= current_customer.username %><br>
     <% elsif logged_in_as_employee? %>
       <%= link_to "View All Jobs", jobs_path %> |
       <%= link_to "Logout", logout_path, method: "delete" %>
+      <br><%= current_employee.username %><br>
     <% else %>
       <%= link_to "Customer Sign Up", "/customers/new" %> |
       <%= link_to "Employee Sign Up", "/employees/new" %> |
       <%= link_to "Log In", "/login" %>
     <% end %>
+    </div>
+
+    <div>
+      <% if flash[:message] %>
+      <%= flash[:message] %>
+      <% end %>
     </div>
 
   <body>

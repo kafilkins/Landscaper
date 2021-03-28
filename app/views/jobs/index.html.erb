@@ -1,0 +1,12 @@
+<h1>My Jobs</h1>
+
+<ul>
+
+<% @jobs.each do |j| %>
+    <%= j.location %> |
+    <%= j.requirements %> |
+    <%= j.cost %> |
+    <br>
+    <% end %>
+
+</ul>
