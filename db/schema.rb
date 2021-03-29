@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_220040) do
+ActiveRecord::Schema.define(version: 2021_03_26_231155) do
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "username"
     t.string "password_digest"
-    t.string "password_confirmation_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,7 +26,6 @@ ActiveRecord::Schema.define(version: 2021_03_27_220040) do
     t.string "last_name"
     t.string "username"
     t.string "password_digest"
-    t.string "password_confirmation_digest"
     t.string "specialty"
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -38,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_220040) do
     t.string "location"
     t.string "requirements"
     t.integer "cost"
+    t.boolean "completed"
     t.integer "employee_id"
     t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false

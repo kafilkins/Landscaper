@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+    #before_action :require_login, only: [:index]
 
     def index
         if 
@@ -6,7 +7,7 @@ class CustomersController < ApplicationController
             @customers = @job.customers.build 
         else
             @customers = Customer.all
-        end
+        end 
 
     end
 
@@ -33,6 +34,10 @@ class CustomersController < ApplicationController
 
     def customer_params
         params.require(:customer).permit(:first_name, :last_name, :username, :password, :password_confirmation)
+    end
+
+    def require_login 
+        return head(:forbidden) unless session.include? :user_id
     end
 
 end

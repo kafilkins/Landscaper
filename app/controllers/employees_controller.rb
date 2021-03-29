@@ -1,9 +1,10 @@
 class EmployeesController < ApplicationController
+    #before_action :require_login, only: [:index]
     
     def index
         @employees = Employee.all
     end
-
+ 
     def new    
         @employee = Employee.new 
     end
@@ -27,6 +28,10 @@ class EmployeesController < ApplicationController
 
     def employee_params
         params.require(:employee).permit(:first_name, :last_name, :username, :password, :password_confirmation, :specialty)
+    end
+
+    def require_login 
+        return head(:forbidden) unless session.include? :user_id
     end
 
 end

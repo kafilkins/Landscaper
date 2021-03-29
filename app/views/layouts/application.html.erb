@@ -19,7 +19,7 @@
      <br>Logged In As:<%= current_customer.username %><br>
     <% elsif logged_in_as_employee? %>
       <%= link_to "View All Jobs", jobs_path %> |
-      <%= link_to "Logout", logout_path, method: "delete" %>
+      <%= link_to "Logout", logout_path, method: "delete" %> 
       <br>Logged In As: <%= current_employee.username %><br>
     <% else %>
       <%= link_to "Customer Sign Up", "/customers/new" %> |
@@ -29,11 +29,11 @@
     <% end %>
     </div>
 
-    <div>
+   <!-- <div>
       <% if flash[:message] %>
       <%= flash[:message] %>
       <% end %>
-    </div>
+    </div> -->
 
   <body>
     <%= yield %>

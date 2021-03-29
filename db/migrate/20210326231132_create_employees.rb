@@ -5,7 +5,6 @@ class CreateEmployees < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.string :username
       t.string :password_digest
-      t.string :password_confirmation_digest
       t.string :specialty
       t.boolean :admin, :default => false
 

@@ -11,11 +11,9 @@ Rails.application.routes.draw do
   get '/sessions/employee_new' => 'sessions#employee_new'
   post '/sessions/employee_new' => 'sessions#create'
 
-  #get '/login' => 'sessions#new'
-  #post '/login' => 'sessions#create'
-
   delete '/logout' => 'sessions#destroy'
 
+  #get '/auth/google_oauth2/callback' => 'sessions#google'
 
   # always do custom routes before these resources route
   
