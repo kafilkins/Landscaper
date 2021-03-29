@@ -1,9 +1,9 @@
 # Specifications for the Rails Project
 
 Specs:
-- [ ] Use the Ruby on Rails framework.
-- [ ] Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
-- [ ] Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+- [x] Use the Ruby on Rails framework.
+- [x] Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+- [x] Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
 
 - [ ] Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
 

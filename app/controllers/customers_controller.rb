@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
     end
 
     def create 
-        @customer = Customer.new(customer_params)
+        @customer = Customer.new(customer_params) 
         if @customer.save
             session[:customer_id] = @customer.id 
             redirect_to customer_path(@customer) #goes to show page
@@ -32,7 +32,7 @@ class CustomersController < ApplicationController
     private 
 
     def customer_params
-        params.require(:customer).permit(:first_name, :last_name, :username, :password)
+        params.require(:customer).permit(:first_name, :last_name, :username, :password, :password_confirmation)
     end
 
 end

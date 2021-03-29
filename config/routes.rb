@@ -5,8 +5,14 @@ Rails.application.routes.draw do
   get '/signup/employee' => 'employees#new'
   get '/signup/customer' => 'customers#new'
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
+  get '/sessions/customer_new' => 'sessions#customer_new'
+  post '/sessions/customer_new' => 'sessions#create'
+
+  get '/sessions/employee_new' => 'sessions#employee_new'
+  post '/sessions/employee_new' => 'sessions#create'
+
+  #get '/login' => 'sessions#new'
+  #post '/login' => 'sessions#create'
 
   delete '/logout' => 'sessions#destroy'
 

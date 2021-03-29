@@ -1,6 +1,13 @@
 <h1>Employee Sign Up</h1>
 
 <%= form_for(@employee) do |f| %>
+    <% if @employee.errors.any? %>
+        <div class="alert alert-danger">
+        <% @employee.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+            <% end %>
+            </div>
+            <% end %>
 
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br>

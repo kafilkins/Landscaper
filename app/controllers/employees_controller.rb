@@ -1,5 +1,9 @@
 class EmployeesController < ApplicationController
     
+    def index
+        @employees = Employee.all
+    end
+
     def new    
         @employee = Employee.new 
     end
@@ -22,7 +26,7 @@ class EmployeesController < ApplicationController
     private
 
     def employee_params
-        params.require(:employee).permit(:first_name, :last_name, :username, :password, :specialty)
+        params.require(:employee).permit(:first_name, :last_name, :username, :password, :password_confirmation, :specialty)
     end
 
 end
