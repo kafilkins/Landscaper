@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
             params[:job_id] && @job = Job.find_by_id(params[:job_id])
             @customers = @job.customers.build 
         else
-            @customers = Customer.all
+            @customers = Customer.all 
         end 
 
     end

@@ -7,17 +7,26 @@ class SessionsController < ApplicationController
     def create 
         if (params[:user][:username]) == "" || (params[:user][:password]) == ""
             flash[:message] = "Invalid email or password, please try again."
-            render '/sessions/customer_new' || '/sessions/employee_new'
+            render '/sessions/new'
         elsif
             user = Employee.find_by(username: params[:user][:username])
-            user && user.authenticate(params[:user][:password])
+           if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
             redirect_to employee_path(user) 
-        else
+           else
+            flash[:message] = "Invalid email or password, please try again."
+            render '/sessions/new'
+        if 
             user = Customer.find_by(username: params[:user][:username])
-            user && user.authenticate(params[:user][:password])
+            if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
             redirect_to customer_path(user)
+            else 
+                flash[:message] = "Invalid email or password, please try again."
+            render '/sessions/new'
+        end
+        end
+        end
         end
     end
 

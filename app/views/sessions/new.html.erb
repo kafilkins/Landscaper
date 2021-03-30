@@ -1,6 +1,4 @@
-<h1>Customer Login</h1>
-
-<%= link_to "Log In With Google", '/auth/google_oauth2' %><br>
+<h1>Login</h1>
 
 <%= flash[:message] if flash[:message] %>
 
@@ -12,10 +10,6 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
-
     <%= f.submit "Submit" %>
-
 
     <% end %>   
