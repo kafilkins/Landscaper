@@ -1,6 +1,6 @@
 <h1>Customer Sign Up</h1>
 
-<%= link_to "Sign In With Google", '/auth/google_oauth2', method: :post %><br>
+<%= button_to "Sign Up With Google", '/auth/google_oauth2' %> <br>
 
 <%= form_for(@customer) do |f| %>
     <% if @customer.errors.any? %>
@@ -17,8 +17,8 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name %><br>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
 
     <%= f.label :password %>
     <%= f.password_field :password %><br>

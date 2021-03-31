@@ -6,7 +6,7 @@ class EmployeesController < ApplicationController
     end
  
     def new    
-        @employee = Employee.new 
+        @employee = Employee.new  
     end
 
     def create 
@@ -27,7 +27,7 @@ class EmployeesController < ApplicationController
     private
 
     def employee_params
-        params.require(:employee).permit(:first_name, :last_name, :username, :password, :password_confirmation, :specialty)
+        params.require(:employee).permit(:first_name, :last_name, :email, :password, :password_confirmation, :specialty)
     end
 
     def require_login 

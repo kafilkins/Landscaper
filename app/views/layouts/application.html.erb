@@ -16,11 +16,11 @@
       <%= link_to "Add a Job", new_job_path %> |
       <%= link_to "View My Jobs", "/customers/#{current_customer.id}/jobs" %> |
       <%= link_to "Logout", logout_path, method: "delete" %>
-     <br>Logged In As:<%= current_customer.username %><br>
+     <br>Logged In As: <%= current_customer.first_name %><br>
     <% elsif logged_in_as_employee? %>
       <%= link_to "View All Jobs", jobs_path %> |
       <%= link_to "Logout", logout_path, method: "delete" %> 
-      <br>Logged In As: <%= current_employee.username %><br>
+      <br>Logged In As: <%= current_employee.first_name %><br>
     <% else %>
       <%= link_to "Customer Sign Up", "/customers/new" %> |
       <%= link_to "Employee Sign Up", "/employees/new" %> |

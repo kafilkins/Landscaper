@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get '/signup/customer' => 'customers#new'
 
   get '/sessions/new' => 'sessions#new'
-  post '/sessions/new' => 'sessions#create'
+  post '/sessions' => 'sessions#create'
 
   delete '/logout' => 'sessions#destroy'
 
-  #get '/auth/google_oauth2/callback' => 'sessions#google'
+  get '/auth/google_oauth2/callback' => 'sessions#google'
 
   # always do custom routes before these resources route
   
