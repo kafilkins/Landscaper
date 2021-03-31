@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def new 
-
+        
     end
 
     def create 
@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
             
             flash[:message] = "Invalid email or password, please try again."
             render '/sessions/new'
+            
         elsif user = Employee.find_by(email: params[:user][:email])
             
            if user && user.authenticate(params[:user][:password])
