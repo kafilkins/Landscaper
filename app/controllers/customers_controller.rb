@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    #before_action :require_login, only: [:index]
+    before_action :require_login, only: [:index]
 
     def index
         if 

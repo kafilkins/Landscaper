@@ -13,11 +13,15 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback' => 'sessions#google'
 
   # always do custom routes before these resources route
+
+  resources :tasks
   
   resources :customers do 
     resources :jobs, only: [:new, :create, :index]
   end
+  
   resources :jobs
+  
   resources :employees do 
     resources :jobs, only: [:new, :create, :index]
   end

@@ -11,6 +11,7 @@ class JobsController < ApplicationController
 
     def new 
         @job = Job.new 
+        @tasks = Task.all
     end
 
     def create
@@ -29,6 +30,6 @@ class JobsController < ApplicationController
     private
 
         def job_params
-            params.require(:job).permit(:location, :requirements, :cost)
+            params.require(:job).permit(:location, :requirements, :cost, task_ids:[], tasks_attributes: [:name])
         end
 end

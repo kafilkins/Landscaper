@@ -7,9 +7,12 @@
 
     <%= f.label :requirements %>
     <%= f.text_field :requirements %>
-
-    <%= f.label :cost %>
-    <%= f.number_field :cost %>
-
-    <%= f.submit %>
+    <br>
+    <br>
+    <% @tasks.each do |task| %>
+        <%= check_box_tag "@job[task_ids][]", task.id %>
+        <%= task.name %><br>
+        <% end %>
+    
+    <%= f.submit "Submit" %>
     <% end %>
