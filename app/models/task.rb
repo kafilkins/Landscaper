@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-    has_many :jobs
+    belongs_to :job
 end
