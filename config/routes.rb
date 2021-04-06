@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   delete "logout" => 'sessions#destroy'
 
-  get '/auth/google_oauth2/callback' => 'sessions#google'
-
+  get '/auth/google_oauth2/callback' => 'sessions#google' 
+  #get '/auth/github/callback' => 'sessions#github'
   # always do custom routes before these resources route
 
   resources :tasks

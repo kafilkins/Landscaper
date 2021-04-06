@@ -8,15 +8,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-    
     <div>
     <% if logged_in_as_customer? %>
       <%= link_to "Add a Job", new_job_path %> |
       <%= link_to "View My Jobs", "/customers/#{current_customer.id}/jobs" %> |
       <%= link_to "Logout", logout_path, method: "delete" %>
-     <br>Logged In As: <%= current_customer.first_name %><br>
+     <br>Logged In As: <%= current_customer.name %><br>
     <% elsif logged_in_as_employee? %>
       <%= link_to "View All Jobs", jobs_path %> |
       <%= link_to "Logout", logout_path, method: "delete" %> 
@@ -27,6 +25,10 @@
       <%= link_to "Log In", "/sessions/new" %>
     <% end %>
     </div>
+  </head>
+  <nav>
+  
+  </nav>
 
    <!-- <div>
       <% if flash[:message] %>

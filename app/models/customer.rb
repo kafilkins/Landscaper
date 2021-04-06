@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
     has_secure_password
-    validates :first_name, :last_name, :email, :password, :password_confirmation, presence: true
+    validates :name, :email, :password, :password_confirmation, presence: true
     validates :password, confirmation: true
     validates :email, uniqueness: true
     validates :password_confirmation, confirmation: true 

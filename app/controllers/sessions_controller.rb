@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_action :verify_authenticity_token, only: :create
 
     def new 
         
@@ -34,24 +35,18 @@ class SessionsController < ApplicationController
     end
 
     def google 
-          @customer = Customer.find_or_create_by(email: auth["info"]["email"]) do |c|
-            c.name= auth["info"]["first_name"] + ["last_name"]
-            c.password= SecureRandom.hex(10)
-        end
-        if @customer.save 
+          @customer = Customer.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |c|
+            c.name = auth['info']['name']
+            c.email = auth['info']['email'] 
+            c.password = SecureRandom.hex(10)
+          end
+        if @customer.valid?
             session[:user_id] = @customer.id 
             redirect_to customer_path(@customer)
         else
-            redirect_to '/sessions/home'
+            redirect_to "sessions#home"
+        end
     end
-    end
-
-   # def omniauth
-   #     @customer = Customer.from_omniauth(auth)
-   #     @customer.save
-   #     session[:user_id] = @user.id
-   #     redirect_to customer_path(@customer)
-   #   end
         
     def destroy 
         session.destroy
@@ -60,9 +55,8 @@ class SessionsController < ApplicationController
 
     private 
 
-        #def auth 
-        #    request.env['omniauth.auth']
-        #end
-
+        def auth 
+            request.env['omniauth.auth']
+        end
 end
 
