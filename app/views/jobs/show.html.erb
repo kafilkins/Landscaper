@@ -3,13 +3,25 @@
 
 <ul>
 <li>Location: <%= @job.location %></li>
-<li>Task: <%= @job.task %></li>
+    <% @job.tasks.each do |task| %>
+<li>Task: <%= task.name %> </li>
+    <% end %>
 
     <% if @job.completed == true %>
-<li>Job Complete</li>
-</ul>
-<% end %>
+    <li>Job Complete</li>
+    </ul>
+    <% end %>
+
+<%= form_for([@job, @task]) do |f| %>
+    <%= f.text_field :name, :class => "new-todo" %>
+    <%= f.submit %>
+    <% end %>
 <br>
 <br>
-<%= link_to "See All Jobs", customer_jobs_path(@job) %><br>
-<%= link_to "Create a New Job", new_customer_job_path(@job) %>
+<% if @task.errors.any? %>
+        <div class="alert alert-danger">
+        <% @task.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+            <% end %>
+            <% end %>
+

@@ -4,6 +4,9 @@ class Job < ApplicationRecord
     belongs_to :customer
     belongs_to :employee, optional: true  
 
+    validates :location, presence: true
+
+
     scope :lawn_mowing, -> { where(task: "Lawn Mowing")}
     scope :mulch, -> { where(task: "Mulch")}
     scope :fertilizing, -> { where(task: "Fertilizing")}

@@ -9,11 +9,12 @@ class TasksController < ApplicationController
     end
 
     def create
-        @task = Task.new(task_params)
+        @job = Job.find(params[:job_id])
+        @task = @job.tasks.build(task_params)
         if @task.save
-            redirect_to task_path(@task) #goes to show page
-        else
-            render "/tasks/new"
+        redirect_to job_path(@job) #goes to show page
+        else 
+            render "jobs/show"
         end
     end
 

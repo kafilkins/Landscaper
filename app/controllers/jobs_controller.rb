@@ -14,20 +14,20 @@ class JobsController < ApplicationController
 
     def show 
         @job = Job.find(params[:id])
+        @task = @job.tasks.build
     end
 
     def new 
         @job = Job.new 
-        @tasks = Task.all
     end
 
     def create
-        byebug
         @job = current_customer.jobs.build(job_params)
          if @job.save
             redirect_to job_path(@job) #goes to show page
         else
-            render "/sessions/home"
+            flash[:message] = "Location can not be blank."
+            render "/jobs/new"
         end
     end
 
@@ -50,6 +50,6 @@ class JobsController < ApplicationController
     private
 
         def job_params
-            params.require(:job).permit(:location, :cost, task:[], completed:[], comment:[:body])
+            params.require(:job).permit(:location, :cost, task:[], completed:[], comment_attributes:[:body])
         end
 end

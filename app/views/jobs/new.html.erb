@@ -1,32 +1,16 @@
 <h1>Create A New Job</h1>
 
 <%= form_for(@job) do |f| %>
-
     <%= f.label :location %>
     <%= f.text_field :location %>
     <br>
     <br>
-    <%= f.label "Available Tasks" %>
-    <br>
-    <br>
-    <%= label_tag 'task_lawn_mowing', 'Lawn Mowing' %>
-    <%= check_box_tag 'job[task][]', 'Lawn Mowing', checked('Lawn Mowing'), id: 'task_lawn_mowing' %><br>
-    <%= label_tag 'task_mulch', 'Mulch' %>
-    <%= check_box_tag 'job[task][]', 'Mulch', checked('Mulch'), id: 'task_mulch' %><br>
-    <%= label_tag 'task_fertilizing', 'Fertilizing' %>
-    <%= check_box_tag 'job[task][]', 'Fertilizing', checked('Fertilizing'), id: 'task_fertilizing' %><br>
-    <%= label_tag 'task_hedge_trimming', 'Hedge Trimming' %>
-    <%= check_box_tag 'job[task][]', 'Hedge Trimming', checked('Hedge Trimming'), id: 'task_hedge_trimming' %><br>
-    <%= label_tag 'task_leaf_removal', 'Leaf Removal' %>
-    <%= check_box_tag 'job[task][]', 'Leaf Removal', checked('Leaf Removal'), id: 'task_leaf_removal' %><br>
-    <%= label_tag 'task_weed_whacking', 'Weed Whacking' %>
-    <%= check_box_tag 'job[task][]', 'Weed Whacking', checked('Weed Whacking'), id: 'task_weed_whacking' %><br>
-    <br>
-    <br>
-    <p>Leave a Comment:</p>
-    <%= f.fields_for :comment do |comment| %>
-        <%= comment.text_field :body %>
-        <% end %>
-
     <%= f.submit "Submit" %>
     <% end %>
+
+    <% if @job.errors.any? %>
+        <div class="alert alert-danger">
+        <% @job.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+            <% end %>
+            <% end %>

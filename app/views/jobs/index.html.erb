@@ -9,8 +9,7 @@
 <ul>
 
 <% @jobs.each do |j| %>
-    <%= j.location %> |
-    <%= j.task %><br> 
+    <%= link_to j.location, "/jobs/#{j.id}" %> <br>
     <% if session[:employee_id].present? %>
     <%= link_to "Edit", edit_job_path(j) %><br>
     <br>

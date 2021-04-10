@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   #get '/auth/github/callback' => 'sessions#github'
   # always do custom routes before these resources route
 
-  resources :tasks
   
   resources :customers do 
     resources :jobs, only: [:new, :create, :index]
@@ -27,5 +26,7 @@ Rails.application.routes.draw do
   resources :employees do 
     resources :jobs, only: [:new, :create, :index]
   end
+
+  resources :comments
   
 end
