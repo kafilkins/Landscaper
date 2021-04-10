@@ -41,10 +41,10 @@ class SessionsController < ApplicationController
             c.password = SecureRandom.hex(10)
           end
         if @customer.valid?
-            session[:user_id] = @customer.id 
+            session[:customer_id] = @customer.id 
             redirect_to customer_path(@customer)
         else
-            redirect_to "sessions#home"
+            redirect_to "/"
         end
     end
         

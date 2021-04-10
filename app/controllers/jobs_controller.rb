@@ -1,12 +1,19 @@
 class JobsController < ApplicationController
-    #before_action :logged_in_as_customer?
 
-    def index   
+    def index  
         if params[:customer_id] && @customer = Customer.find_by_id(params[:customer_id])
             @jobs = @customer.jobs
         else
-            @jobs = Job.all 
+            params[:employee_id] 
+            @jobs = Job.where(:task == current_employee.specialty)
         end
+        if params[:q] && !params[:q].empty?
+            @jobs = @jobs.search(params[:q].downcase)
+        end
+    end
+
+    def show 
+        @job = Job.find(params[:id])
     end
 
     def new 
@@ -15,6 +22,7 @@ class JobsController < ApplicationController
     end
 
     def create
+        byebug
         @job = current_customer.jobs.build(job_params)
          if @job.save
             redirect_to job_path(@job) #goes to show page
@@ -23,13 +31,25 @@ class JobsController < ApplicationController
         end
     end
 
-    def show 
-        @job = Job.find(params[:id])
+    def edit
+        if 
+            session[:employee_id].present? 
+            @job = Job.find_by(id: params[:id])
+        else
+            flash[:message] = "You're not authorized to make changes."
+            render "/sessions/home"
+        end
+    end
+
+    def update
+        @job = Job.find_by(id: params[:id])
+        @job.update(job_params)
+        redirect_to job_path(@job)
     end
 
     private
 
         def job_params
-            params.require(:job).permit(:location, :cost, task:[])
+            params.require(:job).permit(:location, :cost, task:[], completed:[], comment:[:body])
         end
 end

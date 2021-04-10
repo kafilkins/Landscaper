@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_003658) do
+ActiveRecord::Schema.define(version: 2021_04_09_214028) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "job_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -36,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_04_06_003658) do
   create_table "jobs", force: :cascade do |t|
     t.string "location"
     t.string "task"
-    t.integer "cost"
     t.boolean "completed"
     t.integer "employee_id"
     t.integer "customer_id"

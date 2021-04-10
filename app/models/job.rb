@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
     has_many :tasks
+    has_many :comments
     belongs_to :customer
     belongs_to :employee, optional: true  
 
@@ -13,5 +14,10 @@ class Job < ApplicationRecord
     before_save do 
         self.task.gsub!(/[\[\]\"]/, "") if attribute_present?("task")
     end
+
+    def self.search(params)
+        where("LOWER(task) LIKE ?", "%#{params}%")
+    end
+
 end
  

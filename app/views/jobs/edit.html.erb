@@ -1,4 +1,4 @@
-<h1>Create A New Job</h1>
+<h1>Edit A Job</h1>
 
 <%= form_for(@job) do |f| %>
 
@@ -10,7 +10,7 @@
     <br>
     <br>
     <%= label_tag 'task_lawn_mowing', 'Lawn Mowing' %>
-    <%= check_box_tag 'job[task][]', 'Lawn Mowing', checked('Lawn Mowing'), id: 'task_lawn_mowing' %><br>
+    <%= check_box_tag 'job[task][]', 'Lawn Mowing', id: 'task_lawn_mowing' %><br>
     <%= label_tag 'task_mulch', 'Mulch' %>
     <%= check_box_tag 'job[task][]', 'Mulch', checked('Mulch'), id: 'task_mulch' %><br>
     <%= label_tag 'task_fertilizing', 'Fertilizing' %>
@@ -23,10 +23,8 @@
     <%= check_box_tag 'job[task][]', 'Weed Whacking', checked('Weed Whacking'), id: 'task_weed_whacking' %><br>
     <br>
     <br>
-    <p>Leave a Comment:</p>
-    <%= f.fields_for :comment do |comment| %>
-        <%= comment.text_field :body %>
-        <% end %>
+    <%= label_tag 'completed', 'Completed' %>
+    <%= check_box_tag 'job[completed][]', 'Completed', checked('Completed'), id: 'completed' %><br>
 
     <%= f.submit "Submit" %>
     <% end %>
