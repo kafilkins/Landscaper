@@ -1,6 +1,6 @@
 module JobsHelper
 
-    def checked(area)
-        @job.task.nil? ? false : @job.task.match(area)
-    end
+    #def checked(area)
+    #    @job.tasks.nil? ? false : @job.tasks.match(area)
+    #end
 end

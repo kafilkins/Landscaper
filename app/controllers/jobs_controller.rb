@@ -27,7 +27,7 @@ class JobsController < ApplicationController
             redirect_to job_path(@job) #goes to show page
         else
             flash[:message] = "Location can not be blank."
-            render "/jobs/new"
+            render "/jobs/new" 
         end
     end
 
@@ -43,6 +43,7 @@ class JobsController < ApplicationController
 
     def update
         @job = Job.find_by(id: params[:id])
+        @job.completed = params[:job][:completed]
         @job.update(job_params)
         redirect_to job_path(@job)
     end
@@ -50,6 +51,6 @@ class JobsController < ApplicationController
     private
 
         def job_params
-            params.require(:job).permit(:location, :cost, task:[], completed:[], comment_attributes:[:body])
+            params.require(:job).permit(:location, completed:[])
         end
 end

@@ -6,27 +6,10 @@
     <%= f.text_field :location %>
     <br>
     <br>
-    <%= f.label "Available Tasks" %>
+    <%= form_for @job do |f| %>
+        <%= f.check_box :completed, :class => "toggle" %><%= label_tag 'completed', 'Completed' %>
     <br>
     <br>
-    <%= label_tag 'task_lawn_mowing', 'Lawn Mowing' %>
-    <%= check_box_tag 'job[task][]', 'Lawn Mowing', id: 'task_lawn_mowing' %><br>
-    <%= label_tag 'task_mulch', 'Mulch' %>
-    <%= check_box_tag 'job[task][]', 'Mulch', checked('Mulch'), id: 'task_mulch' %><br>
-    <%= label_tag 'task_fertilizing', 'Fertilizing' %>
-    <%= check_box_tag 'job[task][]', 'Fertilizing', checked('Fertilizing'), id: 'task_fertilizing' %><br>
-    <%= label_tag 'task_hedge_trimming', 'Hedge Trimming' %>
-    <%= check_box_tag 'job[task][]', 'Hedge Trimming', checked('Hedge Trimming'), id: 'task_hedge_trimming' %><br>
-    <%= label_tag 'task_leaf_removal', 'Leaf Removal' %>
-    <%= check_box_tag 'job[task][]', 'Leaf Removal', checked('Leaf Removal'), id: 'task_leaf_removal' %><br>
-    <%= label_tag 'task_weed_whacking', 'Weed Whacking' %>
-    <%= check_box_tag 'job[task][]', 'Weed Whacking', checked('Weed Whacking'), id: 'task_weed_whacking' %><br>
-    <br>
-    <br>
-    <%= label_tag 'completed', 'Completed' %>
-    <%= check_box_tag 'job[completed][]', 'Completed', checked('Completed'), id: 'completed' %><br>
-
-    
-
     <%= f.submit "Submit" %>
+    <% end %>
     <% end %>

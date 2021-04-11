@@ -12,9 +12,12 @@
     </ul>
     <% end %>
 
+
+    <% if session[:customer_id].present? %>
 <%= form_for([@job, @task]) do |f| %>
     <%= f.text_field :name, :class => "new-todo" %>
     <%= f.submit %>
+    <% end %>
     <% end %>
 <br>
 <br>
