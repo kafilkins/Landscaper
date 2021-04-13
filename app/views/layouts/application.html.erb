@@ -1,42 +1,43 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> 
+<html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Landscaper</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-    <div>
-    <% if logged_in_as_customer? %>
-      <%= link_to "Add a Job", new_job_path %> |
-      <%= link_to "View My Jobs", "/customers/#{current_customer.id}/jobs" %> |
-      <%= link_to "Logout", logout_path, method: "delete" %>
-     <br>Logged In As: <%= current_customer.name %><br>
-    <% elsif logged_in_as_employee? %>
-      <%= link_to "View All Jobs", jobs_path %> |
-      <%= link_to "Logout", logout_path, method: "delete" %> 
-      <br>Logged In As: <%= current_employee.first_name %><br>
-    <% else %>
-      <%= link_to "Customer Sign Up", "/customers/new" %> |
-      <%= link_to "Employee Sign Up", "/employees/new" %> |
-      <%= link_to "Log In", "/sessions/new" %>
-    <% end %>
-    </div>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet"/>
+
+    <%= stylesheet_link_tag "application.css" %>
   </head>
-  <nav>
-  
-  </nav>
-
-   <!-- <div>
-      <% if flash[:message] %>
-      <%= flash[:message] %>
-      <% end %>
-    </div> -->
 
   <body>
+    
+      <div>
+        <% if flash[:message] %>
+        <%= flash[:message] %>
+        <% end %>
+      </div>
+    <div class="nav">
+      <% if logged_in_as_customer? %>
+        <%= link_to "Add a Job", new_job_path %> |
+        <%= link_to "View My Jobs", "/customers/#{current_customer.id}/jobs" %> |
+        <%= link_to "Logout", logout_path, method: "delete" %>
+      | Logged In As: <%= current_customer.name %>
+        <% elsif logged_in_as_employee? %>
+        <%= link_to "View All Jobs", jobs_path %> |
+        <%= link_to "Logout", logout_path, method: "delete" %>
+      | Logged In As: <%= current_employee.first_name %>
+        <% else %>
+        <%= link_to "Customer Sign Up", "/customers/new" %> |
+        <%= link_to "Employee Sign Up", "/employees/new" %> |
+        <%= link_to "Log In", "/sessions/new" %>
+        <% end %>
+    </div>
+
+    
     <%= yield %>
+    </div>
   </body>
 </html>

@@ -9,24 +9,25 @@
             </div>
             <% end %>
 
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %><br>
+    <ul>
+        <li><%= f.label :first_name %></li>
+        <li><%= f.text_field :first_name %></li>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %><br>
+        <li><%= f.label :last_name %></li>
+        <li><%= f.text_field :last_name %></li>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %><br>
+        <li><%= f.label :email %></li>
+        <li><%= f.text_field :email %></li>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
+        <li><%= f.label :password %></li>
+        <li><%= f.password_field :password %></li>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
+        <li><%= f.label :password_confirmation %></li>
+        <li><%= f.password_field :password_confirmation %></li>
 
-    <%= f.label :specialty %>
-    <%= f.text_field :specialty %><br>
-
-    <%= f.submit "Submit" %>
-
-    <% end %>
+        <li><%= f.label :specialty %></li>
+        <li><%= f.text_field :specialty %></li>
+        <br>
+        <%= f.submit "Submit" %>
+        <% end %>
+    </ul>

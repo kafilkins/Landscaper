@@ -6,15 +6,13 @@
     <%= submit_tag("Search") %>
 <% end %>
 
-<ul>
+<ul class="index">
 
-<% @jobs.each do |j| %>
-    <%= link_to j.location, "/jobs/#{j.id}" %> <br>
-    <% if session[:employee_id].present? %>
-    <%= link_to "Edit", edit_job_path(j) %><br>
-    <br>
-    <br>
-    <% end %>
-    <% end %>
+    <% @jobs.each do |j| %>
+        <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
+        <li><% if session[:employee_id].present? %></li>
+        <li><%= link_to "Edit", edit_job_path(j) %></li>
+        <% end %>
+        <% end %>
 </ul>
 

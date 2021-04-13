@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/sessions/new' => 'sessions#new'
   post '/sessions' => 'sessions#create'
 
-  delete "logout" => 'sessions#destroy'
+  get "logout" => 'sessions#destroy'
 
   get '/auth/google_oauth2/callback' => 'sessions#google' 
   #get '/auth/github/callback' => 'sessions#github'
@@ -26,7 +26,5 @@ Rails.application.routes.draw do
   resources :employees do 
     resources :jobs, only: [:new, :create, :index]
   end
-
-  resources :comments
   
 end

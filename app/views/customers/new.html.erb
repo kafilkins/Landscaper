@@ -1,28 +1,32 @@
 <h1>Customer Sign Up</h1>
 
-<%= button_to "Sign Up With Google", '/auth/google_oauth2' %> <br>
 
-<%= form_for(@customer) do |f| %>
-    <% if @customer.errors.any? %>
-        <div class="alert alert-danger">
-        <% @customer.errors.full_messages.each do |message| %>
-            <div><%= message %></div>
+<ul>    
+    <%= form_for(@customer) do |f| %>
+        <% if @customer.errors.any? %>
+            <div class="alert alert-danger">
+            <% @customer.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+                <% end %>
+                </div>
             <% end %>
-            </div>
-            <% end %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, prompt: true %><br>
+    <li><%= f.label :name %></li>
+    <li><%= f.text_field :name, prompt: true %><br></li>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %><br>
+    <li><%= f.label :email %></li>
+    <li><%= f.text_field :email %><br></li>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
+    <li><%= f.label :password %></li>
+    <li><%= f.password_field :password %><br></li>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
+    <li><%= f.label :password_confirmation %></li>
+    <li><%= f.password_field :password_confirmation %><br></li>
 
-    <%= f.submit "Submit" %>
+    <li><%= f.submit "Submit" %></li>
+    <br>
+    <li><%= button_to "Sign Up With Google", '/auth/google_oauth2' %> <br></li>
 
     <% end %> 
+
+</ul>

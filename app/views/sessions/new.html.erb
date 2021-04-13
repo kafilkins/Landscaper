@@ -1,17 +1,13 @@
 <h1>Login</h1>
 
-<%= flash[:message] if flash[:message] %>
-
-<%= button_to "Log In With Google", '/auth/google_oauth2' %> <br>
-
-<%= form_for :user, url: '/sessions' do |f| %>
-
-    <%= f.label :email %>
-    <%= f.text_field :email %><br>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
-
-    <%= f.submit "Submit" %>
-
-    <% end %>   
+<ul>
+    <%= flash[:message] if flash[:message] %>
+    <%= form_for :user, url: '/sessions' do |f| %>
+    <li><%= f.label :email %></li>
+    <li><%= f.text_field :email %><br></li>
+    <li><%= f.label :password %></li>
+    <li><%= f.password_field :password %><br></li>
+    <li><%= f.submit "Submit" %><br></li>
+    <li><%= button_to "Log In With Google", '/auth/google_oauth2' %></li>
+        <% end %>
+</ul>

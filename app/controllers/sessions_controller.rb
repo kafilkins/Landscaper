@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     end
 
     def create 
-            
         if (params[:user][:email]) == "" || (params[:user][:password]) == ""
             
             flash[:message] = "Invalid email or password, please try again."
