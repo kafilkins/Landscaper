@@ -14,30 +14,24 @@
 
   <body>
     
-      <div>
-        <% if flash[:message] %>
-        <%= flash[:message] %>
-        <% end %>
-      </div>
     <div class="nav">
       <% if logged_in_as_customer? %>
         <%= link_to "Add a Job", new_job_path %> |
         <%= link_to "View My Jobs", "/customers/#{current_customer.id}/jobs" %> |
         <%= link_to "Logout", logout_path, method: "delete" %>
       | Logged In As: <%= current_customer.name %>
-        <% elsif logged_in_as_employee? %>
+      <% elsif logged_in_as_employee? %>
         <%= link_to "View All Jobs", jobs_path %> |
         <%= link_to "Logout", logout_path, method: "delete" %>
       | Logged In As: <%= current_employee.first_name %>
-        <% else %>
+      <% else %>
         <%= link_to "Customer Sign Up", "/customers/new" %> |
         <%= link_to "Employee Sign Up", "/employees/new" %> |
         <%= link_to "Log In", "/sessions/new" %>
-        <% end %>
+      <% end %>
     </div>
 
-    
     <%= yield %>
-    </div>
+    
   </body>
 </html>

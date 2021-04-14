@@ -1,30 +1,25 @@
 <h1>Jobs</h1>
 
-<% @job.tasks.each do |task| %>
-    <table style="width:100%">
-            <tr>
-                <th>Location</th>
-                <th>Task</th>
-            </tr>
+    <% if @task.errors.any? %>
+    <div class="alert alert-danger">
+    <% @task.errors.full_messages.each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+    <% end %>
 
-            <tr>
-                <td><%= @job.location %></td>
-                <td><%= task.name %></td>
-            </tr>
-            <% end %>
-
-            <% if session[:customer_id].present? %>
-                <%= form_for([@job, @task]) do |f| %>
-                <%= f.text_field :name, :class => "new-todo" %>
-                <%= f.submit %>
-                <% end %>
-            <% end %>
-
-            <% if @task.errors.any? %>
-                <div class="alert alert-danger">
-                <% @task.errors.full_messages.each do |message| %>
-                    <div><%= message %></div>
-                    <% end %>
-            <% end %>
-    </table>
+<ul>
+    <li><%= @job.location %> </li>
+    <li><% @job.tasks.each do |task| %></li>
+    <li><%= task.name %> </li>
+    <li><% end %></li>
+    <li><% if @job.completed %></li>
+        <li class="job">Job Complete</li>
+        <li><% else session[:customer_id].present? && !@job.completed %></li>
+        <li><%= form_for([@job, @task]) do |f| %></li>
+            <li><%= f.text_field :name, :class => "new-todo" %></li>
+            <li><%= f.submit %></li>
+            <li><% end %></li>
+            <li><% end %></li>
+</ul>
+    
 

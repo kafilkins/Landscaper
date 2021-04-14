@@ -5,14 +5,41 @@
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
 <% end %>
+<br>
 
-<ul class="index">
+<section class="parent">
+    <section class="child">
+        <h2>Complete Jobs</h2>
+        <ul class="index">
+            <% @jobs.each do |j| %>
+            <% if j.completed %>
+            <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
+            <% if session[:employee_id].present? %>
+            <li><%= link_to "Edit", edit_job_path(j) %></li>
+            <br>
+            <% end %>
+            <% end %>
+            <% end %>
+        </ul>
 
-    <% @jobs.each do |j| %>
-        <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
-        <li><% if session[:employee_id].present? %></li>
-        <li><%= link_to "Edit", edit_job_path(j) %></li>
-        <% end %>
-        <% end %>
-</ul>
+    </section>
+
+    <section class="child">
+        <h2>Incomplete Jobs</h2>
+        <ul class="index">
+            <% @jobs.each do |j| %>
+            <% if !j.completed %>
+            <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
+            <% if session[:employee_id].present? %>
+            <li><%= link_to "Edit", edit_job_path(j) %></li>
+            <br>
+            <% end %>
+            <% end %>
+            <% end %>
+        </ul>
+    </section>
+
+</section>
+
+
 

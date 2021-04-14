@@ -12,7 +12,7 @@
             <% end %>
 
     <li><%= f.label :name %></li>
-    <li><%= f.text_field :name, prompt: true %><br></li>
+    <li><%= f.text_field :name, prompt: true %><br></li> 
 
     <li><%= f.label :email %></li>
     <li><%= f.text_field :email %><br></li>
@@ -25,7 +25,7 @@
 
     <li><%= f.submit "Submit" %></li>
     <br>
-    <li><%= button_to "Sign Up With Google", '/auth/google_oauth2' %> <br></li>
+    <li><%= button_to "Sign Up With Google", "/auth/google_oauth2" %> <br></li>
 
     <% end %> 
 

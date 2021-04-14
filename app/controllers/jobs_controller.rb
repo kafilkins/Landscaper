@@ -5,10 +5,10 @@ class JobsController < ApplicationController
             @jobs = @customer.jobs
         else
             params[:employee_id] 
-            @jobs = Job.where(:task == current_employee.specialty)
+            @jobs = Job.all
         end
         if params[:q] && !params[:q].empty?
-            @jobs = @jobs.search(params[:q].downcase)
+            @jobs = @jobs.search(params[:q])
         end
     end
 

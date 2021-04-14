@@ -1,5 +1,4 @@
 <h1>Transform Your Property</h1>
-<%= flash[:message] if flash[:message] %>
 
 <div class="container">
       <div class="content">
@@ -10,7 +9,7 @@
             </div>
 
             <div class="card-back">
-              <div class="stats-name">Lawn Mowing</div>
+              <div class="stats-name"><%= link_to "Lawn Mowing", "/customers/new" %></div>
             </div>
           </div>
         </div>
@@ -24,7 +23,7 @@
             </div>
 
             <div class="card-back">
-              <div class="stats-name">Mulch</div>
+              <div class="stats-name"><%= link_to "Mulch", "/customers/new" %></div>
             </div>
           </div>
         </div>
@@ -36,7 +35,7 @@
             </div>
 
             <div class="card-back">
-              <div class="stats-name">Fertilizing</div>
+              <div class="stats-name"><%= link_to "Fertilizing", "/customers/new" %></div>
             </div>
           </div>
         </div>
@@ -48,7 +47,7 @@
             </div>
 
             <div class="card-back">
-              <div class="stats-name">Spring/Fall Cleanup</div>
+              <div class="stats-name"><%= link_to "Spring/Fall CleanUp", "/customers/new" %></div>
             </div>
           </div>
         </div>
@@ -60,7 +59,7 @@
             </div>
 
             <div class="card-back">
-              <div class="stats-name">Hedge Trimming</div>
+              <div class="stats-name"><%= link_to "Hedge Trimming", "/customers/new" %></div>
             </div>
           </div>
         </div>
@@ -72,7 +71,7 @@
             </div>
 
             <div class="card-back">
-              <div class="stats-name">Special Services</div>
+              <div class="stats-name"><%= link_to "Special Services", "/customers/new" %></div>
             </div>
           </div>
         </div>

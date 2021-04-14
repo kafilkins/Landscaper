@@ -1,12 +1,13 @@
 <h1>Create A New Job</h1>
 
-<%= form_for(@job) do |f| %>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <br>
-    <br>
-    <%= f.submit "Submit" %>
-    <% end %>
+<ul>
+    <li><%= form_for(@job) do |f| %></li>
+    <li><%= f.label :location %></li>
+    <li><%= f.text_field :location %></li>
+    <li><br></li>
+    <li><%= f.submit "Submit" %></li>
+    <li><% end %></li>
+</ul>
 
     <% if @job.errors.any? %>
         <div class="alert alert-danger">
