@@ -1,24 +1,5 @@
-# README
+Landscaper is a fictional Rails application that allows a landscaping company to receive job orders for customers. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A customer and go to the website and  put in an job request, indicating which tasks they require for the job. An employee can also sign in and view what jobs they have available. Only employees have the ability to alter jobs, once they've been created. Employees can go and edit a job to complete. This will help keep track of what jobs are complete and what is still open. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Installation - Fork the repository - Clone the file to your computer - Change into the proper directory - Run 'bundle' - Run 'rails db:migrate' - Run 'rails s' to start the server. Once the server is running, you can copy and paste the URL given within the terminal to view the app through a webpage. 
