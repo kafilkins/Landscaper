@@ -11,17 +11,17 @@ Specs:
 - [x] Your application must provide standard user authentication, including signup, login, logout, and passwords.
 - [x] Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
-- [ ] You must include and make use of a nested resource with the appropriate RESTful URLs.
+- [x] You must include and make use of a nested resource with the appropriate RESTful URLs.
     - You must include a nested new route with form that relates to the parent resource.
     - You must include a nested index or show route.
 - [x] Your forms should correctly display validation errors.
     - Your fields should be enclosed within a fields_with_errors class
     - Error messages describing the validation failures must be present within the view.
-- [ ] Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message

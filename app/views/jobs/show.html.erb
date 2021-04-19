@@ -1,25 +1,25 @@
 <h1>Jobs</h1>
 
-    <% if @task.errors.any? %>
-    <div class="alert alert-danger">
-    <% @task.errors.full_messages.each do |message| %>
-    <div><%= message %></div>
-    <% end %>
-    <% end %>
-
 <ul>
     <li><%= @job.location %> </li>
     <li><% @job.tasks.each do |task| %></li>
     <li><%= task.name %> </li>
     <li><% end %></li>
     <li><% if @job.completed %></li>
-        <li class="job">Job Complete</li>
-        <li><% else session[:customer_id].present? && !@job.completed %></li>
-        <li><%= form_for([@job, @task]) do |f| %></li>
-            <li><%= f.text_field :name, :class => "new-todo" %></li>
-            <li><%= f.submit %></li>
-            <li><% end %></li>
-            <li><% end %></li>
+    <li class="job">Job Complete</li>
+    <li><% else session[:customer_id].present? && !@job.completed %></li>
+    <li><%= form_for([@job, @task]) do |f| %></li>
+    <li><%= f.text_field :name, :class => "new-todo" %></li>
+    <li><%= f.submit %></li>
+    <li><% end %></li>
+    <li><% end %></li>
 </ul>
+
+<% if @task.errors.any? %>
+    <div class="alert alert-danger">
+    <% @task.errors.full_messages.each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+    <% end %>
     
 

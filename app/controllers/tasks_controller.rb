@@ -11,6 +11,7 @@ class TasksController < ApplicationController
     def create
         @job = Job.find(params[:job_id])
         @task = @job.tasks.build(task_params)
+        @task = @task.unique
         if @task.save
         redirect_to job_path(@job) #goes to show page
         else 
