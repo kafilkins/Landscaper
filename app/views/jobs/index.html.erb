@@ -39,6 +39,18 @@
         </ul>
     </section>
 
+    <section class="child">
+        <h2>Customers To Invoice</h2>
+        <ul class="index">
+            <% @jobs.each do |j| %>
+            <% if j.completed && j.employee_id == current_employee.id %>
+            <li><%= j.customer.name %></li>
+            <br>
+            <% end %>
+            <% end %>
+        </ul>
+    </section>
+
 </section>
 
 

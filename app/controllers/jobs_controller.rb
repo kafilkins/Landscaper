@@ -44,6 +44,7 @@ class JobsController < ApplicationController
     def update
         @job = Job.find_by(id: params[:id])
         @job.completed = params[:job][:completed]
+        @job.employee_id = session[:employee_id]
         @job.update(job_params)
         redirect_to job_path(@job)
     end
