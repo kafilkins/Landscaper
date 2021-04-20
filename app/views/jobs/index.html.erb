@@ -9,13 +9,27 @@
 
 <section class="parent">
     <section class="child">
+    <h2>Incomplete Jobs</h2>
+    <ul class="index">
+    <% @jobs.each do |j| %>
+        <% if !j.completed %>
+        <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
+        <% if session[:employee_id].present? %>
+        <li><%= link_to "Edit", edit_job_path(j) %></li>
+        <br>
+        <% end %>
+        <% end %>
+        <% end %>
+    </ul>
+    </section>
+    
+    <section class="child">
         <h2>Complete Jobs</h2>
         <ul class="index">
             <% @jobs.each do |j| %>
             <% if j.completed %>
             <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
             <% if session[:employee_id].present? %>
-            <li><%= link_to "Edit", edit_job_path(j) %></li>
             <br>
             <% end %>
             <% end %>
@@ -24,31 +38,28 @@
 
     </section>
 
-    <section class="child">
-        <h2>Incomplete Jobs</h2>
-        <ul class="index">
-            <% @jobs.each do |j| %>
-            <% if !j.completed %>
-            <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
-            <% if session[:employee_id].present? %>
-            <li><%= link_to "Edit", edit_job_path(j) %></li>
-            <br>
-            <% end %>
-            <% end %>
-            <% end %>
-        </ul>
-    </section>
+    
 
     <section class="child">
-        <h2>Customers To Invoice</h2>
-        <ul class="index">
-            <% @jobs.each do |j| %>
-            <% if j.completed && j.employee_id == current_employee.id %>
-            <li><%= j.customer.name %></li>
-            <br>
-            <% end %>
-            <% end %>
-        </ul>
+        <% if !!current_employee %>
+            <h2>Customers To Invoice</h2>
+            <ul class="index">
+                <% @jobs.each do |j| %>
+                <% if j.completed && j.employee_id == current_employee.id %>
+                <li><%= j.customer.name %></li>
+                <% end %>
+                <% end %>
+            </ul>
+        <% else !!current_customer %>
+            <h2>Invoices</h2>
+            <ul class="index">
+                <% @jobs.each do |j| %>
+                <% if j.completed && j.customer_id == current_customer.id %>
+                <li><%= link_to j.location, "/jobs/#{j.id}" %></li>
+                <% end %>
+                <% end %>
+                <% end %>
+            </ul>
     </section>
 
 </section>

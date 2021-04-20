@@ -3,6 +3,7 @@ class JobsController < ApplicationController
     def index  
         if params[:customer_id] && @customer = Customer.find_by_id(params[:customer_id])
             @jobs = @customer.jobs
+
         else
             params[:employee_id] 
             @jobs = Job.all
